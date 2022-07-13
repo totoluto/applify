@@ -1,10 +1,9 @@
 from pprint import pprint
-import sched
-import time
 import urllib
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import credentials
+import requests
 
 #Configs
 SPOTIPY_CLIENT_ID = credentials.SPOTIPY_CLIENT_ID
@@ -23,7 +22,22 @@ def internet_on():
     except:
         return False
 
-def request(url):
-    print("Todo")
+#Saves a tmp html of the Apple Music Website
+def fetchApplePlaylist(url):
+    f = requests.get(url)
+    html = f.text
 
-url = input("Enter URL of Apple Playlist")
+    g = open("tmpWebsite.html", "a", encoding="utf-8")
+    g.write(html)
+    g.close()
+
+
+
+#Main
+
+if internet_on():
+    url = input("Enter URL of Apple Playlist:")
+    fetchApplePlaylist(url=url)
+else:
+    print("No Connection")
+    exit
