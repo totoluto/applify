@@ -1,0 +1,5 @@
+SPOTIPY_CLIENT_ID = 'CLIENT_ID'
+SPOTIPY_CLIENT_SECRET = 'CLIENT_SECRET'
+SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8080'
+SCOPE = 'playlist-modify-private playlist-read-private user-library-read user-library-modify playlist-modify-public'
+PLAYLIST = 'PLAYLIST_ID'
